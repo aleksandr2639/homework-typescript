@@ -4,8 +4,9 @@ export default class Book implements Buyable {
   constructor (
     readonly id: number,
     readonly name: string,
-    readonly author: string,
     readonly price: number,
+    readonly author: string,
+    readonly year: number,
     readonly pages: number,
   ){}
 }

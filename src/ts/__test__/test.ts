@@ -12,6 +12,31 @@ test('new card should be empty', () => {
   const cart = new Cart();
   cart.add(new Movie(12345, 'The Avengers', 400, 'https://github.com/netology-code/ajs-homeworks/blob/ajs8/typescript/pic/avengers.png', 2012, 'Avengers Assemmble!', 'action', 137));
   cart.add(new Music(67890, 'Greatest Hits', 1500, 'The Offspring', 2005));
-  cart.add(new Book(23789, 'Empire V', 'Victor Pelevin', 2006, 416));
+  cart.add(new Book(23789, 'Empire V', 900, 'Victor Pelevin', 2006, 416));
   expect(cart.items.length).toBe(3);
+});
+
+test('sum price', () => {
+  const cart = new Cart();
+  cart.add(new Movie(12345, 'The Avengers', 400, 'https://github.com/netology-code/ajs-homeworks/blob/ajs8/typescript/pic/avengers.png', 2012, 'Avengers Assemmble!', 'action', 137));
+  cart.add(new Music(67890, 'Greatest Hits', 1500, 'The Offspring', 2005));
+  cart.add(new Book(23789, 'Empire V', 900, 'Victor Pelevin', 2006, 416));
+  expect(cart.sumItem()).toBe(2800);
+});
+
+test('discount price', () => {
+  const cart = new Cart();
+  cart.add(new Movie(12345, 'The Avengers', 400, 'https://github.com/netology-code/ajs-homeworks/blob/ajs8/typescript/pic/avengers.png', 2012, 'Avengers Assemmble!', 'action', 137));
+  cart.add(new Music(67890, 'Greatest Hits', 1500, 'The Offspring', 2005));
+  cart.add(new Book(23789, 'Empire V', 900, 'Victor Pelevin', 2006, 416));
+  expect(cart.discountItem(35)).toBe(1820);
+});
+
+test('delete id', () => {
+  const cart = new Cart();
+  cart.add(new Movie(12345, 'The Avengers', 400, 'https://github.com/netology-code/ajs-homeworks/blob/ajs8/typescript/pic/avengers.png', 2012, 'Avengers Assemmble!', 'action', 137));
+  cart.add(new Music(67890, 'Greatest Hits', 1500, 'The Offspring', 2005));
+  cart.add(new Book(23789, 'Empire V', 900, 'Victor Pelevin', 2006, 416));
+  cart.deleteItem (12345);
+  expect(cart.items.length).toBe(2);
 });

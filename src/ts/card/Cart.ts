@@ -9,4 +9,16 @@ export default class Cart {
     get items(): Buyable[] {
         return [...this._items];
     }
+
+    sumItem () : number {
+       return Array.from(this.items).reduce((sum, value) => (sum + value.price),0);
+    }
+
+    discountItem (discount :number) : number {
+        return this.sumItem() * ((100 - discount) / 100);
+    }
+
+    deleteItem (id :number) : void {
+        this._items.splice(this._items.findIndex(value=> value.id === id), 1);
+    }
 }
