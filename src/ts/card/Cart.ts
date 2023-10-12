@@ -11,7 +11,7 @@ export default class Cart {
     }
 
     sumItem () : number {
-       return Array.from(this.items).reduce((sum, value) => (sum + value.price),0);
+       return this._items.reduce((sum, value) => (sum + value.price),0);
     }
 
     discountItem (discount :number) : number {
